@@ -1,0 +1,51 @@
+import React, { ReactNode, useEffect, useState } from "react"
+import Image from "next/image"
+import ConstructionCell from "../ConstructionCell"
+import { mockData } from "./mockData"
+import classes from "./CastleCenter.module.scss"
+
+const index: React.FC = () => {
+    const [arrs, setArrs] = useState<ReactNode>([])
+
+    useEffect(() => {
+        const numberCellsRow = [2, 3, 8, 8, 7, 7, 8, 8, 3, 2]
+        const renderCells = []
+        let arrayClone = Array.from(mockData.cells)
+
+        for (let count = 0; count < numberCellsRow.length; count++) {
+            renderCells.push(
+                <div className={classes.row} key={count}>
+                    {arrayClone.splice(0, numberCellsRow[count]).map((item) => (
+                        <ConstructionCell key={item.id} number={item.id} />
+                    ))}
+                </div>
+            )
+        }
+
+        if (renderCells.length === 10) {
+            setArrs(renderCells)
+        }
+    }, [])
+
+    return (
+        <div className={classes.box}>
+            <div className={classes.bg}>
+                <Image src="/bg-4.jpg" height={1080} width={1920} alt="img" />
+            </div>
+
+            <div className={classes.wrapper}>
+                <div className={classes.mainBuilding}>
+                    <Image
+                        src="/buildings/main-home-2.png"
+                        height={150}
+                        width={150}
+                        alt="img"
+                    />
+                </div>
+                <div className={classes.midPart}>{arrs}</div>
+            </div>
+        </div>
+    )
+}
+
+export default index

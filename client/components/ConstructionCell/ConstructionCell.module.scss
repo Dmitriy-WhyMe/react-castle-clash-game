@@ -1,0 +1,105 @@
+@import "/styles/comon.scss";
+
+.cell {
+    cursor: pointer;
+    position: relative;
+
+    &.cellLocked {
+        pointer-events: none;
+        .number {
+            font-size: 0;
+        }
+    }
+
+    .substrate {
+        width: 120px;
+        height: 70px;
+        background: #00000060;
+        clip-path: polygon(
+            50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%
+        );
+
+        @media (max-width: $mq__page-step-2) {
+            width: 90px;
+            height: 55px;
+        }
+    }
+
+    .texture {
+        position: absolute;
+        clip-path: polygon(
+            50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%
+        );
+        z-index: 1;
+
+        img {
+            object-fit: cover;
+            @media (max-width: $mq__page-step-2) {
+                width: 90px;
+                height: 53px;
+            }
+        }
+    }
+
+    .number {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        z-index: 2;
+    }
+
+    .building {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 30px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+
+        img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+    }
+
+    &:hover {
+        .substrate {
+            background: #00000080;
+        }
+    }
+
+    .grass {
+        position: absolute;
+        z-index: 2;
+    }
+}
+
+.modalBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border: 2px solid #000;
+    padding: 4px;
+}

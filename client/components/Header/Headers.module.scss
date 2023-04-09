@@ -1,0 +1,37 @@
+.header {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    height: 40px;
+    background: rgb(99, 56, 56);
+
+    li {
+        color: greenyellow;
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+.resources {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.people > ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

@@ -1,0 +1,103 @@
+@import "/styles/comon.scss";
+
+$mt-cell-1920: -15px;
+$mlr-cell-1920: 121px;
+
+$mt-cell-1680: -12px;
+$mlr-cell-1680: 92px;
+
+.box {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    overflow: hidden;
+    height: calc(100vh - 40px);
+
+    img {
+        object-fit: cover;
+        color: transparent;
+        height: -webkit-fill-available;
+        max-width: 100vw;
+    }
+}
+
+.mainBuilding {
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    left: 0px;
+    right: 0;
+    bottom: 0px;
+    top: -180px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    @media (max-width: $mq__page-step-2) {
+        top: -110px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.midPart {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -100px;
+
+    @media (max-width: $mq__page-step-2) {
+        margin-top: -30px;
+    }
+}
+
+.row {
+    display: flex;
+    gap: 2px;
+    margin-top: $mt-cell-1920;
+
+    @media (max-width: $mq__page-step-2) {
+        margin-top: $mt-cell-1680;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+        margin-top: $mt-cell-1920;
+        margin-left: $mlr-cell-1920;
+
+        @media (max-width: $mq__page-step-2) {
+            margin-top: $mt-cell-1680;
+            margin-left: $mlr-cell-1680;
+        }
+    }
+
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(10) {
+        margin-top: $mt-cell-1920;
+        margin-right: $mlr-cell-1920;
+
+        @media (max-width: $mq__page-step-2) {
+            margin-top: $mt-cell-1680;
+            margin-right: $mlr-cell-1680;
+        }
+    }
+}

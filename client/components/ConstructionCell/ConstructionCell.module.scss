@@ -4,6 +4,12 @@
     cursor: pointer;
     position: relative;
 
+    &:hover {
+        .substrate {
+            background: #00000080;
+        }
+    }
+
     &.cellLocked {
         pointer-events: none;
         .number {
@@ -76,14 +82,14 @@
         z-index: 3;
 
         img {
-            max-width: 80px;
-            max-height: 80px;
-        }
-    }
-
-    &:hover {
-        .substrate {
-            background: #00000080;
+            max-width: 105px;
+            max-height: 105px;
+            width: 100%;
+            height: auto;
+            @media (max-width: $mq__page-step-2) {
+                max-width: 90px;
+                max-height: 90px;
+            }
         }
     }
 

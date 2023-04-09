@@ -3,12 +3,18 @@ import Modal from "@mui/material/Modal"
 import Image from "next/image"
 import classes from "./ConstructionCell.module.scss"
 import BuildingItem from "../BuildingItem"
+import { relative } from "path"
 
 type Props = {
-    number: number
+    ml?: string
+    mr?: string
+    mt?: string
+    mb?: string
+    bgColor?: string
+    number?: number
 }
 
-const index: React.FC<Props> = ({ number }) => {
+const index: React.FC<Props> = ({ number, ml, mr, mt, mb, bgColor }) => {
     const [open, setOpen] = useState(false)
     const modalOpen = () => setOpen(true)
     const modalClose = () => setOpen(false)
@@ -43,17 +49,26 @@ const index: React.FC<Props> = ({ number }) => {
             </Modal>
 
             <div
+                style={{
+                    marginLeft: ml,
+                    marginRight: mr,
+                    marginTop: mt,
+                    marginBottom: mb,
+                    background: bgColor
+                }}
                 className={
-                    number === 32 ||
-                    number === 24 ||
-                    number === 25 ||
                     number === 17 ||
+                    number === 23 ||
+                    number === 24 ||
+                    number === 31 ||
                     showBuilding
                         ? `${classes.cellLocked} ${classes.cell}`
                         : classes.cell
                 }
                 onClick={modalOpen}>
-                <div className={classes.number}>{number}</div>
+                {
+                    //<div className={classes.number}>{number}</div>
+                }
                 <div className={classes.building}>
                     {showBuilding ? (
                         <Image
@@ -64,14 +79,16 @@ const index: React.FC<Props> = ({ number }) => {
                         />
                     ) : null}
                 </div>
-                <div className={classes.texture}>
-                    <Image
-                        src="/texture-cell-2.jpg"
-                        height={100}
-                        width={100}
-                        alt="img"
-                    />
-                </div>
+                {/*
+                    <div className={classes.texture}>
+                        <Image
+                            src="/texture-cell-2.jpg"
+                            height={100}
+                            width={100}
+                            alt="img"
+                        />
+                    </div>
+                    */}
                 <div className={classes.substrate}></div>
             </div>
         </>
